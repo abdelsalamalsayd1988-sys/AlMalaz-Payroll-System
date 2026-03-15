@@ -4,39 +4,24 @@
     <meta charset="UTF-8">
     <title>لوحة تحكم نظام الملز</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f9; text-align: center; color: #333; margin: 0; padding: 20px; }
-        .container { margin-top: 50px; background: white; padding: 40px; display: inline-block; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid #ddd; }
-        h1 { color: #2c3e50; margin-bottom: 10px; }
-        p { color: #7f8c8d; margin-bottom: 30px; }
-        .btn { background-color: #3498db; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; margin: 10px; display: inline-block; cursor: pointer; border: none; font-size: 16px; transition: 0.3s; font-weight: bold; }
-        .btn:hover { background-color: #2980b9; transform: translateY(-2px); }
+        body { font-family: sans-serif; background-color: #f4f4f9; text-align: center; padding: 20px; }
+        .container { margin-top: 50px; background: white; padding: 40px; display: inline-block; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; }
+        .btn { background-color: #3498db; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; margin: 10px; display: inline-block; cursor: pointer; border: none; font-size: 16px; }
         .btn-delete { background-color: #e74c3c; }
-        .btn-delete:hover { background-color: #c0392b; }
-        hr { border: 0; border-top: 1px solid #eee; margin: 20px 0; }
-        .logo { border-radius: 50%; margin-bottom: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- شعار نظام الملز الاحترافي -->
-        <img src="https://via.placeholder.com" alt="AlMalaz Logo" class="logo">
-        
         <h1>🏢 نظام تشغيل الملز (رواتب)</h1>
-        <p>مرحباً بك في لوحة الإدارة الآمنة</p>
         <hr>
         <a href="/list" class="btn">عرض قائمة الموظفين 📋</a>
-        <!-- الزر الذي سيطلب منك كلمة السر AlMalaz@2026 -->
         <button class="btn btn-delete" onclick="askPassword()">مسح البيانات 🔐</button>
     </div>
-
     <script>
         function askPassword() {
-            // سيظهر هذا المربع ليطلب منك كلمة السر التي اخترناها
-            let pass = prompt("الرجاء إدخال كلمة السر الخاصة بنظام الملز لإتمام المسح:");
-            if (pass != null && pass != "") {
-                // سيقوم هذا السطر بإرسال الكلمة لملف app.py للتأكد منها وحذف البيانات
-                window.location.href = "/clear/" + pass;
-            }
+            let pass = prompt("الرجاء إدخال كلمة السر للمسح:");
+            if (pass) { window.location.href = "/clear/" + pass; }
         }
     </script>
 </body>
